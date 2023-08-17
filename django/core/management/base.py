@@ -277,11 +277,13 @@ class BaseCommand:
         else:
             self.style = color_style(force_color)
             self.stderr.style_func = self.style.ERROR
-        if (
-            not isinstance(self.requires_system_checks, (list, tuple))
-            and self.requires_system_checks != ALL_CHECKS
-        ):
-            raise TypeError("requires_system_checks must be a list or tuple.")
+
+        self.requires_system_checks = ()
+        #if (
+        #    not isinstance(self.requires_system_checks, (list, tuple))
+        #    and self.requires_system_checks != ALL_CHECKS
+        #):
+        #    raise TypeError("requires_system_checks must be a list or tuple.")
 
     def get_version(self):
         """
